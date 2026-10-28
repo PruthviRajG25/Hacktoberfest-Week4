@@ -177,6 +177,24 @@ cp .env.example server/.env
 | `OLLAMA_HOST` | `http://127.0.0.1:11434` | URL of your local Ollama instance |
 | `GEMMA_MODEL` | `gemma4:e2b` | Ollama model tag for inference |
 
+### Vercel deployment
+
+The client can be deployed to Vercel, but Vercel cannot reach an Ollama process running
+on your computer at `127.0.0.1:11434`. Host the Express server and Ollama-compatible
+inference service on a reachable server first, then configure the Vercel project as
+follows:
+
+1. Import `PruthviRajG25/Hacktoberfest-Week4` in Vercel.
+2. Set the project **Root Directory** to `client`.
+3. Set the **Build Command** to `npm run build` and the **Output Directory** to `dist`.
+4. Add the client environment variable `VITE_API_BASE_URL` with the public URL of the
+   hosted Express backend, without a trailing slash.
+5. Deploy and verify that `/api/health` on the backend reports the expected Ollama
+   connection.
+
+When `VITE_API_BASE_URL` is unset, local development continues to use the Vite proxy
+at `http://127.0.0.1:5001`.
+
 ---
 
 ## 🧪 API Reference & Testing

@@ -18,6 +18,7 @@ const LOADING_PHRASES = [
 ];
 
 const STORAGE_KEY = 'wraith_archive_v1';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '');
 
 export default function App() {
   const [memoryInput, setMemoryInput] = useState('');
@@ -58,7 +59,7 @@ export default function App() {
   // Poll backend health status
   const checkHealth = async () => {
     try {
-      const res = await fetch('/api/health');
+      const res = await fetch(`${API_BASE_URL}/api/health`);
       if (res.ok) {
         const data = await res.json();
         setBackendStatus(data);
@@ -136,7 +137,7 @@ export default function App() {
     setLoadingPhraseIndex(0);
 
     try {
-      const response = await fetch('/api/analyze', {
+      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ memory: clean })
