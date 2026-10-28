@@ -1,0 +1,19 @@
+{
+  "name": "wraith-server",
+  "version": "1.0.0",
+  "description": "Local-first AI memory archive server powered by Ollama and Gemma 4",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "keywords": ["wraith", "ollama", "gemma4", "local-ai", "express"],
+  "author": "WRAITH Contributor",
+  "license": "MIT"
+}

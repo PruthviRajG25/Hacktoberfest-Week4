@@ -1,0 +1,25 @@
+{
+  "name": "wraith",
+  "version": "1.0.0",
+  "description": "WRAITH 👻 — A Local-First AI Memory Archive powered by Gemma 4 and Ollama",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['--prefix', 'server', 'run', 'dev'], { stdio: 'inherit', shell: true }); spawn('npm', ['--prefix', 'client', 'run', 'dev'], { stdio: 'inherit', shell: true });\"",
+    "build:client": "npm --prefix client run build",
+    "build": "npm run build:client"
+  },
+  "keywords": [
+    "wraith",
+    "gemma4",
+    "ollama",
+    "local-ai",
+    "privacy-first",
+    "halloween",
+    "ghost-in-the-machine"
+  ],
+  "author": "WRAITH Contributors",
+  "license": "MIT"
+}
